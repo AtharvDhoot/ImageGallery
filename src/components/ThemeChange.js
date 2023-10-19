@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const ThemeChange = () => {
+  const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "light");
+
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.querySelector("html")?.setAttribute("data-theme", theme);
+  }, [theme]);
+
   return (
     <label className="swap swap-rotate ml-2">
-      <input type="checkbox" />
+      <input
+        onClick={handleToggle}
+        type="checkbox"
+        checked={theme === "dark"}
+      />
 
       <svg
         className="swap-on fill-current w-6 h-6"
