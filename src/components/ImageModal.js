@@ -47,7 +47,7 @@ const ImageModal = ({ selectedPhoto }) => {
                 >
                   <ShareIcon fontSize="small" /> Share
                 </a>
-                <div className="dropdown dropdown-bottom">
+                <div className="dropdown dropdown-top">
                   <label tabIndex={0} className="btn btn-xs btn-outline ml-2">
                     <InfoOutlinedIcon fontSize="small" /> Info
                   </label>
@@ -55,10 +55,18 @@ const ImageModal = ({ selectedPhoto }) => {
                     tabIndex={0}
                     className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                   >
-                    <li>{selectedPhoto.description}</li>
-                    <li>Country: {selectedPhoto.location.country}</li>
-                    <li>City: {selectedPhoto.location.city}</li>
-                    <li>Camera: {selectedPhoto.exif.model}</li>
+                    {selectedPhoto.description && (
+                      <li>Description: {selectedPhoto.description}</li>
+                    )}
+                    {selectedPhoto.location.country && (
+                      <li>Country: {selectedPhoto.location.country}</li>
+                    )}
+                    {selectedPhoto.location.city && (
+                      <li>City: {selectedPhoto.location.city}</li>
+                    )}
+                    {selectedPhoto.exif.model && (
+                      <li>Camera: {selectedPhoto.exif.model}</li>
+                    )}
                   </ul>
                 </div>
               </div>
