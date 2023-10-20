@@ -50,13 +50,15 @@ export const NavBar = ({ onSearch }) => {
           </label>
           <dialog id="search_modal" className="modal">
             <div className="modal-box">
-              <div className="form-control">
+              <form onSubmit={handleSearchSubmit} className="form-control">
                 <input
                   type="text"
+                  name="searchInput"
                   placeholder="Search images here"
                   className="input w-full"
                 />
-              </div>
+                <button type="submit" style={{ display: "none" }}></button>
+              </form>
             </div>
             <form method="dialog" className="modal-backdrop">
               <button>close</button>

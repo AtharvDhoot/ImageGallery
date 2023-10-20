@@ -22,14 +22,14 @@ const ImageModal = ({ selectedPhoto }) => {
         <div
           className={`card ${
             selectedPhoto.height > selectedPhoto.width
-              ? "w-[300px] lg:w-[400px]"
-              : "w-[600px] lg:w-[800px]"
+              ? "w-[250px] md:w-[300px] lg:w-[400px]"
+              : "w-[250px] sm:w-[400px] md:w-[600px] lg:w-[800px]"
           } bg-base-100 shadow-xl`}
         >
           <figure>
             <div className="relative">
               <form method="dialog">
-                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                <button className="btn btn-sm btn-circle absolute right-2 top-2">
                   ✕
                 </button>
               </form>
@@ -40,7 +40,7 @@ const ImageModal = ({ selectedPhoto }) => {
               />
               <div className="absolute left-4 bottom-8 lg:left-8">
                 <a
-                  className="btn btn-xs btn-outline"
+                  className="btn btn-xs"
                   href={selectedPhoto?.links?.html}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -48,7 +48,7 @@ const ImageModal = ({ selectedPhoto }) => {
                   <ShareIcon fontSize="small" /> Share
                 </a>
                 <div className="dropdown dropdown-top">
-                  <label tabIndex={0} className="btn btn-xs btn-outline ml-2">
+                  <label tabIndex={0} className="btn btn-xs ml-2">
                     <InfoOutlinedIcon fontSize="small" /> Info
                   </label>
                   <ul
