@@ -65,6 +65,7 @@ export const NavBar = ({ onSearch }) => {
             </form>
           </dialog>
         </div>
+        <ThemeChange />
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <MenuIcon />

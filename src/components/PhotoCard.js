@@ -28,7 +28,9 @@ const PhotoCard = ({ photo, onImageClick }) => {
             <IconButton aria-label="Like" style={{ color: "white" }}>
               <ThumbUpIcon />
             </IconButton>
-            <span style={{ marginRight: "24px" }}>{photo?.likes}</span>
+            <span style={{ marginRight: "24px" }} className="text-white">
+              {photo?.likes}
+            </span>
           </div>
         }
       />

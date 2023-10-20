@@ -22,7 +22,7 @@ const ImageModal = ({ selectedPhoto }) => {
         <div
           className={`card ${
             selectedPhoto.height > selectedPhoto.width
-              ? "w-[250px] md:w-[300px] lg:w-[400px]"
+              ? "w-[300px] lg:w-[400px]"
               : "w-[250px] sm:w-[400px] md:w-[600px] lg:w-[800px]"
           } bg-base-100 shadow-xl`}
         >
