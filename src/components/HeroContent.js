@@ -1,6 +1,14 @@
 import React from "react";
 
-const HeroContent = () => {
+const HeroContent = ({ onSearch }) => {
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const searchValue = e.target.searchInput.value;
+    if (searchValue) {
+      onSearch(searchValue);
+    }
+  };
+
   return (
     <div className="flex justify-center w-full h-[300px] overflow-hidden relative">
       <img
@@ -25,11 +33,18 @@ const HeroContent = () => {
         <p className="text-center text-white mt-2 text-sm md:text-base">
           Over 2.4 million+ stock Images by our talented community
         </p>
-        <input
-          type="text"
-          placeholder="Search high resolution Images, categories, wallpapers"
-          className="input input-bordered w-full mt-2 bg-white text-black input-sm md:input-md"
-        />
+        <form
+          onSubmit={handleSearchSubmit}
+          className="form-control hidden lg:flex"
+        >
+          <input
+            type="text"
+            name="searchInput"
+            placeholder="Search high resolution Images, categories, wallpapers"
+            className="input input-bordered w-full mt-2 bg-white text-black input-sm md:input-md"
+          />
+          <button type="submit" style={{ display: "none" }}></button>
+        </form>
       </div>
     </div>
   );

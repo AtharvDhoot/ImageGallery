@@ -3,18 +3,30 @@ import { ThemeChange } from "./ThemeChange";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 
-export const NavBar = () => {
+export const NavBar = ({ onSearch }) => {
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    const searchValue = e.target.searchInput.value;
+    if (searchValue) {
+      onSearch(searchValue);
+    }
+  };
   return (
-    <div className="navbar bg-base-100 container mx-auto px-8 md:px-0">
+    <div className="navbar bg-base-100 container mx-auto px-8 md:px-0 sticky top-0 z-50">
       <div className="flex-1 gap-16">
-        <h1 className="font-pattaya text-3xl">Image gallery</h1>
-        <div className="form-control hidden lg:flex">
+        <button className="font-pattaya text-3xl">Image gallery</button>
+        <form
+          onSubmit={handleSearchSubmit}
+          className="form-control hidden lg:flex"
+        >
           <input
             type="text"
+            name="searchInput"
             placeholder="Search images here"
             className="input input-bordered w-24 md:w-auto"
           />
-        </div>
+          <button type="submit" style={{ display: "none" }}></button>
+        </form>
       </div>
       <div className="flex-none gap-2 hidden lg:flex">
         <button className="btn-sm btn btn-ghost">Explore</button>
