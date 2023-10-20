@@ -17,13 +17,13 @@ const ImageModal = ({ selectedPhoto }) => {
   };
 
   return (
-    <dialog id="image_card" className="modal">
+    <dialog id="image_card" className="modal !overflow-y-visible">
       {selectedPhoto && (
         <div
-          className={`card w-[300px] ${
+          className={`card ${
             selectedPhoto.height > selectedPhoto.width
-              ? "lg:w-[400px]"
-              : "lg:w-[800px]"
+              ? "w-[300px] lg:w-[400px]"
+              : "w-[600px] lg:w-[800px]"
           } bg-base-100 shadow-xl`}
         >
           <figure>
