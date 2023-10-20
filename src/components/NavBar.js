@@ -14,7 +14,12 @@ export const NavBar = ({ onSearch }) => {
   return (
     <div className="navbar bg-base-100 container mx-auto px-8 md:px-0 sticky top-0 z-50">
       <div className="flex-1 gap-16">
-        <button className="font-pattaya text-3xl">Image gallery</button>
+        <button
+          className="font-pattaya text-3xl"
+          onClick={() => onSearch(null)}
+        >
+          Image gallery
+        </button>
         <form
           onSubmit={handleSearchSubmit}
           className="form-control hidden lg:flex"

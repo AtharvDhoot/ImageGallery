@@ -26,13 +26,13 @@ const ImageModal = ({ selectedPhoto }) => {
               : "lg:w-[800px]"
           } bg-base-100 shadow-xl`}
         >
-          <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
-            </button>
-          </form>
           <figure>
             <div className="relative">
+              <form method="dialog">
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                  ✕
+                </button>
+              </form>
               <img
                 src={selectedPhoto?.urls.regular}
                 alt={selectedPhoto?.alt_description || "Unsplash Image"}

@@ -33,10 +33,7 @@ const HeroContent = ({ onSearch }) => {
         <p className="text-center text-white mt-2 text-sm md:text-base">
           Over 2.4 million+ stock Images by our talented community
         </p>
-        <form
-          onSubmit={handleSearchSubmit}
-          className="form-control hidden lg:flex"
-        >
+        <form onSubmit={handleSearchSubmit} className="form-control flex">
           <input
             type="text"
             name="searchInput"

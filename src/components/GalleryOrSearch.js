@@ -36,6 +36,7 @@ const GalleryOrSearch = ({ mode, query }) => {
   };
 
   const handleNext = () => {
+    setPhotos(null);
     scrollToTop();
     setPage((prev) => prev + 1);
   };
@@ -56,6 +57,7 @@ const GalleryOrSearch = ({ mode, query }) => {
   };
 
   useEffect(() => {
+    setPhotos(null);
     if (mode === "gallery") {
       api.photos
         .getRandom({
