@@ -148,20 +148,44 @@ const PhotoGallery = () => {
                     className="rounded mb-4"
                   />
                   <div className="absolute left-4 bottom-8 lg:left-8">
-                    <button className="btn btn-xs btn-outline">
+                    <a
+                      className="btn btn-xs btn-outline"
+                      href={selectedPhoto?.links?.html}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <ShareIcon fontSize="small" /> Share
-                    </button>
-                    <button className="btn btn-xs btn-outline ml-2">
-                      <InfoOutlinedIcon fontSize="small" /> Info
-                    </button>
+                    </a>
+                    <div className="dropdown dropdown-bottom">
+                      <label
+                        tabIndex={0}
+                        className="btn btn-xs btn-outline ml-2"
+                      >
+                        <InfoOutlinedIcon fontSize="small" /> Info
+                      </label>
+                      <ul
+                        tabIndex={0}
+                        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                      >
+                        <li>{selectedPhoto.description}</li>
+                        <li>Country: {selectedPhoto.location.country}</li>
+                        <li>City: {selectedPhoto.location.city}</li>
+                        <li>Camera: {selectedPhoto.exif.model}</li>
+                      </ul>
+                    </div>
                   </div>
                   <div className="absolute right-4 bottom-8 lg:bottom-9">
-                    <button className="btn btn-success btn-xs normal-case">
+                    <a
+                      className="btn btn-success btn-xs normal-case"
+                      href={selectedPhoto.links.download}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <span className="hidden lg:flex">Download Image</span>
                       <span className="flex lg:hidden">
                         <DownloadOutlinedIcon fontSize="small" />
                       </span>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </figure>
@@ -184,14 +208,18 @@ const PhotoGallery = () => {
                           </span>
                         </div>
                         <div className="grid">
-                          <span className="text-xs">
-                            <InstagramIcon fontSize="small" />/
-                            {selectedPhoto?.user?.social.instagram_username}
-                          </span>
-                          <span className="text-xs">
-                            <TwitterIcon fontSize="small" />/
-                            {selectedPhoto?.user.social?.twitter_username}
-                          </span>
+                          {selectedPhoto?.user?.social.instagram_username && (
+                            <span className="text-xs">
+                              <InstagramIcon fontSize="small" />/
+                              {selectedPhoto?.user?.social.instagram_username}
+                            </span>
+                          )}
+                          {selectedPhoto?.user.social?.twitter_username && (
+                            <span className="text-xs">
+                              <TwitterIcon fontSize="small" />/
+                              {selectedPhoto?.user.social?.twitter_username}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>
