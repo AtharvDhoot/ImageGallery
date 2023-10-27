@@ -10,7 +10,7 @@ import ImageModal from "./ImageModal";
 import Pagination from "./Pagination";
 
 const api = createApi({
-  accessKey: process.env.REACT_APP_UNSPLASH_ACCESS_KEY,
+  accessKey: "IJAG2RMj5H9li3u-7lclApETnnnPf7VeQitFlJfvzGk",
 });
 
 const scrollToTop = () => {
